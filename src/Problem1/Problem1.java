@@ -1,27 +1,19 @@
 package Problem1;
 
-public class Problem1<E> implements Queue<E> {
-    private ArrayStack<E> stack;
+public class Problem1<E> extends ArrayStack<E> implements Queue<E> {
     private int capacity;
 
     public Problem1(){
-        stack = new ArrayStack<E>();
-        capacity = ArrayStack.CAPACITY;
+        super();
+        capacity = super.CAPACITY;
     }
 
     public Problem1(int c){
-        stack = new ArrayStack<E>(c);
+        super(c);
         capacity = c;
     }
-    @Override
-    public int size() {
-        return stack.size();
-    }
 
-    @Override
-    public boolean isEmpty() {
-        return stack.isEmpty();
-    }
+    // size(), isEmpty are inherited from ArrayStack
 
     @Override
     public void enqueue(E e) throws IllegalStateException {
@@ -29,7 +21,7 @@ public class Problem1<E> implements Queue<E> {
         if (size()==capacity){
             throw new IllegalStateException("Queue is full.");
         }
-        stack.push(e);
+        push(e);
 
 
     }
@@ -39,13 +31,13 @@ public class Problem1<E> implements Queue<E> {
         E re = null;
 
         if (size() == 1)
-            re = stack.top();
+            re = top();
 
         if (size() > 1) {
             Stack<E> tmp = popToFirst();
-            re = stack.top();
+            re = top();
             while (!tmp.isEmpty())
-            stack.push(tmp.pop());
+            push(tmp.pop());
         }
 
         return re;
@@ -55,21 +47,21 @@ public class Problem1<E> implements Queue<E> {
     public E dequeue() {
         E re = null;
         if (size() == 1)
-            re = stack.pop();
+            re = pop();
 
         if (size() > 1) {
             Stack<E> tmp = popToFirst();
-            re = stack.pop();
+            re = pop();
             while (!tmp.isEmpty())
-            stack.push(tmp.pop());
+            push(tmp.pop());
         }
         return re;
     }
 
     private Stack<E> popToFirst() {
         Stack<E> tmp = new ArrayStack<E>(capacity);
-        while (stack.size() > 1) {
-            tmp.push(stack.pop());//push data[t] to data[1]
+        while (size() > 1) {
+            tmp.push(pop());//push data[t] to data[1] onto tmp
         }
         return tmp;
     }
