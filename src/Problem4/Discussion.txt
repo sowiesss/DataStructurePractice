@@ -1,0 +1,11 @@
+In the worst case, the number of calls to the recursive method compute(i,j)
+precessing an array of size n is:
+T(n) = 1+T(n-1)
+     = 1+ (1+T(n-2)) = 2 + T(n-2)
+     = 3 + T(n-3)
+     ...
+     = n-2+T(2)
+
+T(n) gets smaller until the base case T(2) = 1.
+Thus, T(n) = n-2 + 1 = n-1.
+So, the run time in the worst case is proportional to n-1 and hence it is O(n).
