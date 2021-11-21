@@ -12,7 +12,7 @@ public class TestClass {
     @Test
     void test2(){
         int[] a = new int[] {0, 2, 5, 7, 10, 11, 13};
-        //reach base case 4: size == 2 && sum != target
+        //reach base case 4: span == 2 && sum != target
         int[] result = Problem4.find(a, 8);
         assertArrayEquals(null, result);
     }

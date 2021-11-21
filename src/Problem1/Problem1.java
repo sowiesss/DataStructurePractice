@@ -17,13 +17,10 @@ public class Problem1<E> extends ArrayStack<E> implements Queue<E> {
 
     @Override
     public void enqueue(E e) throws IllegalStateException {
-
         if (size()==capacity){
             throw new IllegalStateException("Queue is full.");
         }
         push(e);
-
-
     }
 
     @Override
@@ -61,7 +58,7 @@ public class Problem1<E> extends ArrayStack<E> implements Queue<E> {
     private Stack<E> popToFirst() {
         Stack<E> tmp = new ArrayStack<E>(capacity);
         while (size() > 1) {
-            tmp.push(pop());//push data[t] to data[1] onto tmp
+            tmp.push(this.pop());//push data[t] to data[1] onto tmp
         }
         return tmp;
     }

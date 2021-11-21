@@ -1,6 +1,6 @@
 package Problem3;
 
-/** A basic doubly linked list implementation from textbook. */
+/** A basic doubly linked list implementation of queue from textbook. */
 
 public class ListDeque<E> implements Deque<E>  {
     //---------------- nested Node class ----------------

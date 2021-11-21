@@ -1,5 +1,6 @@
 In the worst case, the number of calls to the recursive method compute(i,j)
-precessing an array of size n is:
+with an original array src of size n is:
+
 T(n) = 1+T(n-1)
      = 1+ (1+T(n-2)) = 2 + T(n-2)
      = 3 + T(n-3)
